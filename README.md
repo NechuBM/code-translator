@@ -10,8 +10,9 @@ For developing the app in just 100 lines of code and only using Python we need:
 * ChatGPT API
 * Streamlit
 
-[Youtube tutorial - English](https://youtu.be/F0nnsrcvrsc)
-[Youtube tutorial - Español](https://youtu.be/2kyscxiE8gc) 
+[English tutorial | Youtube](https://youtu.be/F0nnsrcvrsc)
+
+[Tutorial en Español | Youtube](https://youtu.be/2kyscxiE8gc) 
 
 ## The Awesome Project We Can Build
 Are you tired of spending hours trying to figure out what's wrong with your code? Do you want to learn more about how AI can help you fix and explain code? Then PolyglotCode is the app for you! With PolyglotCode, you can simply paste your code into the app and let AI do the rest. The app will translate your code into plain English, fix any errors it finds, and explain how the code works.
