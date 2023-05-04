@@ -4,6 +4,8 @@
 
 PolyglotCode is a simple Python app that uses the power of AI to translate, fix, and explain code. With only 100 lines of code, this app is easy to use and a great way to learn about creating apps and working with ChatGPT and AI.
 
+<img src="demo.gif" alt="drawing" width="700"/>
+
 ## Introduction
 PolyglotCode is an awesome project that demonstrates the power of AI and the ease of creating apps using Python. To learn how to build this app step by step follow the tutorial in the Youtube link below (**English and Spanish**).
 For developing the app in just 100 lines of code and only using Python we need:
