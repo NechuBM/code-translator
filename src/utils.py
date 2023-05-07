@@ -20,10 +20,22 @@ programming_languages = (
             "xml", "xquery", "yaml"
             )
 
+model_details = {
+    'Davinci':'text-davinci-003',
+    'GPT-3.5':'gpt-3.5-turbo',
+    'GPT-4':'gpt-4'
+}
+
+action_details = {
+    'Translate': 'translate',
+    'Explain': 'code_explanation',
+    'Fix': 'bug_fix', 
+}
+
 output_results = {
-    'code_explanation': ('Natural Language',),
-    'bug_fix': ('Code fix',),
-    'translate': programming_languages
+    'Explain': ('Natural Language',),
+    'Fix': ('Code fix',),
+    'Translate': programming_languages
 }
 
 prompts_configuration = [
@@ -35,11 +47,11 @@ prompts_configuration = [
 def define_prompt(action, input_language, code, output_language=False):
     prompt = "" 
 
-    if action == 'translate':
+    if action == 'Translate':
         prompt = prompts_configuration[0]['translate'].format(input_language, output_language, code)
-    elif action == 'bug_fix':
+    elif action == 'Fix':
         prompt = prompts_configuration[1]['bug_fix'].format(input_language, code)
-    elif action == 'code_explanation':
+    elif action == 'Explain':
         prompt = prompts_configuration[2]['code_explanation'].format(input_language, code)
 
     return prompt
