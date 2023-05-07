@@ -1,6 +1,6 @@
 # PolyglotCode: A Python app for translating, fixing and explaining code with AI.
 
-:link: [Live demo](https://nechubm-code-translator-srcapp-tutorial-n8c6jm.streamlit.app/)
+:link: [Live demo](https://nechubm-code-translator-srcapp-12xkmi.streamlit.app/)
 
 PolyglotCode is a simple Python app that uses the power of AI to translate, fix, and explain code. With only 100 lines of code, this app is easy to use and a great way to learn about creating apps and working with ChatGPT and AI.
 
@@ -11,6 +11,8 @@ PolyglotCode is an awesome project that demonstrates the power of AI and the eas
 For developing the app in just 100 lines of code and only using Python we need:
 * ChatGPT API
 * Streamlit
+
+:warning: Tutorial code in branch [tutorial](https://github.com/NechuBM/code-translator/tree/tutorial)
 
 [English tutorial | Youtube](https://youtu.be/F0nnsrcvrsc)
 
