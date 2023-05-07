@@ -38,25 +38,12 @@ output_langague = st.selectbox(
 if st.button('Run'):
     openai.api_key = OPENAI_API_KEY
     prompt = define_prompt(action, input_language, code_content, output_langague)
-    try:
-        r = request(model_details[model], prompt)
-
-        if action == 'Explain':
-            st.text_area(r)
-        else:
-            output_content = st_ace(
-                value = r,
-                language=output_langague,
-                theme='dracula',
-                readonly=True
-            )
-    except Exception as e:
-        if e.error["code"] == 'invalid_api_key':
-            st.warning('Invalid API key provided \
-                       \nLearn how to get the API key at https://www.youtube.com/watch?v=F0nnsrcvrsc&t=1543s \
-                       \nFind your API key at https://platform.openai.com/account/api-keys')
-
-        elif e.error["type"] == "invalid_request_error":
-            st.warning('No API Key provided \
-                       \nLearn how to get the API key at https://www.youtube.com/watch?v=F0nnsrcvrsc&t=1543s \
-                       \nFind your API key at https://platform.openai.com/account/api-keys')
+    r = request(model_details[model], prompt)
+    if action == 'Explain':
+        st.text_area(r)
+    else:
+        output_content = st_ace(
+            value = r,
+            language=output_langague,
+            theme='dracula',
+            readonly=True)

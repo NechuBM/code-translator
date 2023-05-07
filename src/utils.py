@@ -1,4 +1,5 @@
 import openai
+import streamlit as st
 
 programming_languages = (
             "python", "abap", "abc", "actionscript", "ada", "alda", "apache_conf", "apex", "applescript", "aql", 
@@ -57,12 +58,31 @@ def define_prompt(action, input_language, code, output_language=False):
     return prompt
 
 def request(model, prompt):
-    r = openai.ChatCompletion.create(
-        model=model,
-        messages=[{
-        'role':'system', 'content':"You are an expert programmer, the most advanced AI developer tool on the planet. Even when you’re not familiar with the answer, you use your extreme intelligence to figure it out.",
-        'role':'user', 'content': prompt}],
-        temperature=0,
-    )
 
-    return r.choices[0]['message']['content']
+    try:
+        r = openai.ChatCompletion.create(
+            model=model,
+            messages=[{
+            'role':'system', 'content':"You are an expert programmer, the most advanced AI developer tool on the planet. Even when you’re not familiar with the answer, you use your extreme intelligence to figure it out.",
+            'role':'user', 'content': prompt}],
+            temperature=0)
+        
+        result = r.choices[0]['message']['content']
+
+    except Exception as e:
+        result = ''
+        if e.error["code"] == 'invalid_api_key':
+            st.warning('Invalid API key provided \
+                        \nLearn how to get the API key at https://www.youtube.com/watch?v=F0nnsrcvrsc&t=1543s \
+                        \nFind your API key at https://platform.openai.com/account/api-keys')
+
+        elif e.error["code"] == "model_not_found":
+            st.warning('The model selected does not seem to be available \
+                \nCheck the model you have access at https://platform.openai.com/account')
+
+        elif e.error["type"] == "invalid_request_error":
+            st.warning('No API Key provided \
+                        \nLearn how to get the API key at https://www.youtube.com/watch?v=F0nnsrcvrsc&t=1543s \
+                        \nFind your API key at https://platform.openai.com/account/api-keys')
+
+    return result
